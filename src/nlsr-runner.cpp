@@ -72,7 +72,6 @@ NlsrRunner::run()
     m_nlsr.getFib().clean();
     m_nlsr.destroyFaces();
   }
-  _LOG_INFO("After catch");
   	/*
 
     STATISTICS COUNT

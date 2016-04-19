@@ -64,6 +64,9 @@ public:
   void
   printStatistics();
 
+  void
+  logSnapshot() const;
+
   /***** GETTERS *****/
   size_t
   get(PacketType) const;
@@ -81,8 +84,11 @@ public:
     return m_packetCounter;
   }
 
+  //static const ndn::time::seconds SNAPSHOT_INTERVAL;
+
 private:
   std::map<PacketType,int> m_packetCounter;
+  //ndn::Scheduler& m_scheduler;
 };
 
 std::ostream&

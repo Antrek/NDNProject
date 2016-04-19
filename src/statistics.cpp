@@ -27,6 +27,8 @@
 
 namespace nlsr {
 
+//const ndn::time::seconds Statistics::SNAPSHOT_INTERVAL = ndn::time::seconds(15);
+
 Statistics::Statistics()
 {
 
@@ -40,38 +42,38 @@ Statistics::printStatistics()
             << "+              Statistics              +\n"
             << "+                                      +\n"
             << "++++++++++++++++++++++++++++++++++++++++\n"
-            << "HELLO PROTOCOL\n"
-            << "\tSent Hello Interests: "              << m_packetCounter[PacketType::SENT_HELLO_INTEREST] << "\n"
-            << "\tSent Hello Data: "                   << m_packetCounter[PacketType::SENT_HELLO_DATA] << "\n"
-            << "\tReceived Hello Interests: "          << m_packetCounter[PacketType::RCV_HELLO_INTEREST] << "\n"
-            << "\tReceived Hello Data: "               << m_packetCounter[PacketType::RCV_HELLO_DATA] << "\n"
-            << "\n"
-            << "SYNC PROTOCOL\n"
-            << "\tSent Sync Interests: "               << m_packetCounter[PacketType::SENT_SYNC_INTEREST] << "\n"
-            << "\tSent Sync Recovery Interests: "      << m_packetCounter[PacketType::SENT_SYNC_RECOVERY_INTEREST] << "\n"
-            << "\tSent Sync Data: "                    << m_packetCounter[PacketType::SENT_SYNC_DATA] << "\n"
-            << "\tSent Sync Recovery Data: "           << m_packetCounter[PacketType::SENT_SYNC_RECOVERY_DATA] << "\n"
-            << "\tReceived Sync Interest: "            << m_packetCounter[PacketType::RCV_SYNC_INTEREST] << "\n"
-            << "\tReceived Sync Recovery Interest: "   << m_packetCounter[PacketType::RCV_SYNC_RECOVERY_INTEREST] << "\n"
-            << "\tReceived Sync Data: "                << m_packetCounter[PacketType::RCV_SYNC_DATA] << "\n"
-            << "\tReceived Sync Recovery Data: "       << m_packetCounter[PacketType::RCV_SYNC_RECOVERY_DATA] << "\n"
-            << "\n"
-            << "LSDB\n"
-            << "\tTotal Sent LSA Interests: "          << m_packetCounter[PacketType::SENT_LSA_INTEREST] << "\n"
-            << "\tTotal Received LSA Interests: "      << m_packetCounter[PacketType::RCV_LSA_INTEREST] << "\n"
-            << "\n"
-            << "\tSent Adjacency LSA Interests: "      << m_packetCounter[PacketType::SENT_ADJ_LSA_INTEREST] << "\n"
-            << "\tSent Coordinate LSA Interests: "     << m_packetCounter[PacketType::SENT_COORD_LSA_INTEREST] << "\n"
-            << "\tSent Name LSA Interests: "           << m_packetCounter[PacketType::SENT_NAME_LSA_INTEREST] << "\n"
-            << "\tSent Adjacency LSA Data: "           << m_packetCounter[PacketType::SENT_ADJ_LSA_DATA] << "\n"
-            << "\tSent Coordinate LSA Data: "          << m_packetCounter[PacketType::SENT_COORD_LSA_DATA] << "\n"
-            << "\tSent Name LSA Data: "                << m_packetCounter[PacketType::SENT_NAME_LSA_DATA] << "\n"
-            << "\tReceived Adjacency LSA Interests: "  << m_packetCounter[PacketType::RCV_ADJ_LSA_INTEREST] << "\n"
-            << "\tReceived Coordinate LSA Interests: " << m_packetCounter[PacketType::RCV_COORD_LSA_INTEREST] << "\n"
-            << "\tReceived Name LSA Interests: "       << m_packetCounter[PacketType::RCV_NAME_LSA_INTEREST] << "\n"
-            << "\tReceived Adjacency LSA Data: "       << m_packetCounter[PacketType::RCV_ADJ_LSA_DATA] << "\n"
-            << "\tReceived Coordinate LSA Data: "      << m_packetCounter[PacketType::RCV_COORD_LSA_DATA] << "\n"
-            << "\tReceived Name LSA Data: "            << m_packetCounter[PacketType::RCV_NAME_LSA_DATA] << "\n"
+            << "+ HELLO PROTOCOL\n"
+            << "+ \tSent Hello Interests: "              << m_packetCounter[PacketType::SENT_HELLO_INTEREST] << "\n"
+            << "+ \tSent Hello Data: "                   << m_packetCounter[PacketType::SENT_HELLO_DATA] << "\n"
+            << "+ \tReceived Hello Interests: "          << m_packetCounter[PacketType::RCV_HELLO_INTEREST] << "\n"
+            << "+ \tReceived Hello Data: "               << m_packetCounter[PacketType::RCV_HELLO_DATA] << "\n"
+            << "+ \n"
+            << "+ SYNC PROTOCOL\n"
+            << "+ \tSent Sync Interests: "               << m_packetCounter[PacketType::SENT_SYNC_INTEREST] << "\n"
+            << "+ \tSent Sync Recovery Interests: "      << m_packetCounter[PacketType::SENT_SYNC_RECOVERY_INTEREST] << "\n"
+            << "+ \tSent Sync Data: "                    << m_packetCounter[PacketType::SENT_SYNC_DATA] << "\n"
+            << "+ \tSent Sync Recovery Data: "           << m_packetCounter[PacketType::SENT_SYNC_RECOVERY_DATA] << "\n"
+            << "+ \tReceived Sync Interest: "            << m_packetCounter[PacketType::RCV_SYNC_INTEREST] << "\n"
+            << "+ \tReceived Sync Recovery Interest: "   << m_packetCounter[PacketType::RCV_SYNC_RECOVERY_INTEREST] << "\n"
+            << "+ \tReceived Sync Data: "                << m_packetCounter[PacketType::RCV_SYNC_DATA] << "\n"
+            << "+ \tReceived Sync Recovery Data: "       << m_packetCounter[PacketType::RCV_SYNC_RECOVERY_DATA] << "\n"
+            << "+ \n"
+            << "+ LSDB\n"
+            << "+ \tTotal Sent LSA Interests: "          << m_packetCounter[PacketType::SENT_LSA_INTEREST] << "\n"
+            << "+ \tTotal Received LSA Interests: "      << m_packetCounter[PacketType::RCV_LSA_INTEREST] << "\n"
+            << "+ \n"
+            << "+ \tSent Adjacency LSA Interests: "      << m_packetCounter[PacketType::SENT_ADJ_LSA_INTEREST] << "\n"
+            << "+ \tSent Coordinate LSA Interests: "     << m_packetCounter[PacketType::SENT_COORD_LSA_INTEREST] << "\n"
+            << "+ \tSent Name LSA Interests: "           << m_packetCounter[PacketType::SENT_NAME_LSA_INTEREST] << "\n"
+            << "+ \tSent Adjacency LSA Data: "           << m_packetCounter[PacketType::SENT_ADJ_LSA_DATA] << "\n"
+            << "+ \tSent Coordinate LSA Data: "          << m_packetCounter[PacketType::SENT_COORD_LSA_DATA] << "\n"
+            << "+ \tSent Name LSA Data: "                << m_packetCounter[PacketType::SENT_NAME_LSA_DATA] << "\n"
+            << "+ \tReceived Adjacency LSA Interests: "  << m_packetCounter[PacketType::RCV_ADJ_LSA_INTEREST] << "\n"
+            << "+ \tReceived Coordinate LSA Interests: " << m_packetCounter[PacketType::RCV_COORD_LSA_INTEREST] << "\n"
+            << "+ \tReceived Name LSA Interests: "       << m_packetCounter[PacketType::RCV_NAME_LSA_INTEREST] << "\n"
+            << "+ \tReceived Adjacency LSA Data: "       << m_packetCounter[PacketType::RCV_ADJ_LSA_DATA] << "\n"
+            << "+ \tReceived Coordinate LSA Data: "      << m_packetCounter[PacketType::RCV_COORD_LSA_DATA] << "\n"
+            << "+ \tReceived Name LSA Data: "            << m_packetCounter[PacketType::RCV_NAME_LSA_DATA] << "\n"
             << "++++++++++++++++++++++++++++++++++++++++\n";
 }
 
@@ -104,13 +106,25 @@ Statistics::resetAll()
     it.second = 0;
   }
 }
+/*
+void
+Statistics::logSnapshot() const
+{
+  std::string snapshot = "Snapshot\n";
+  snapshot += printStatistics();
+
+  
+  _LOG_INFO(snapshot);
+
+  m_scheduler.scheduleEvent(SNAPSHOT_INTERVAL, std::bind(&Statistics::logSnapshot, this));
+}*/
 
 std::ostream&
 operator<<(std::ostream& os, const Statistics& stats) 
 {
   using PacketType = Statistics::PacketType;
 
-  os << "++++++++++++++++++++++++++++++++++++++++\n" 
+  os << "\n++++++++++++++++++++++++++++++++++++++++\n" 
      << "+                                      +\n"
      << "+              Statistics              +\n"
      << "+                                      +\n"

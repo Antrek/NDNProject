@@ -36,7 +36,7 @@ INIT_LOGGER("Lsdb");
 const ndn::Name::Component Lsdb::NAME_COMPONENT = ndn::Name::Component("lsdb");
 const ndn::time::seconds Lsdb::GRACE_PERIOD = ndn::time::seconds(10);
 const steady_clock::TimePoint Lsdb::DEFAULT_LSA_RETRIEVAL_DEADLINE = steady_clock::TimePoint::min();
-const ndn::time::seconds Lsdb::SNAPSHOT_INTERVAL = ndn::time::seconds(60);
+const ndn::time::seconds Lsdb::SNAPSHOT_INTERVAL = ndn::time::seconds(30);
 
 using namespace std;
 
@@ -81,6 +81,7 @@ Lsdb::logSnapshot() const
   snapshot += "---\n";
 
   _LOG_INFO(snapshot);
+  _LOG_INFO("statistics" << m_nlsr.getStatistics());
 
   m_scheduler.scheduleEvent(SNAPSHOT_INTERVAL, std::bind(&Lsdb::logSnapshot, this));
 }
